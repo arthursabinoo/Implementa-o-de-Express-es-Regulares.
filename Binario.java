@@ -7,7 +7,7 @@ public class Binario {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        System.out.println("Validador de Números Binários terminados em '0'");
+        System.out.println("Validador de Números Binários terminados em '0' com sequência de três '0's ou '1's seguidos");
         System.out.println("Digite 'x' para sair a qualquer momento.");
 
         while (true) {
@@ -30,7 +30,7 @@ public class Binario {
     }
     
     public static boolean validarBinario(String binaryNumber) {
-        String binaryRegex = "^0*(1*0+)*$";
+        String binaryRegex = "^(?=.*000|.*111).*0$";
         Pattern pattern = Pattern.compile(binaryRegex);
         Matcher matcher = pattern.matcher(binaryNumber);
         return matcher.matches();
